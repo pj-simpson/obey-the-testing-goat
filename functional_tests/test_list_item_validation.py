@@ -1,6 +1,7 @@
 from selenium.webdriver.common.keys import Keys
 from .base import FunctionalTest
 
+
 class ItemValidationTest(FunctionalTest):
 
     def test_cannot_add_empty_list_items(self):
@@ -17,7 +18,6 @@ class ItemValidationTest(FunctionalTest):
         ))
 
         # She tries again with some text for the item, which now works
-
         self.browser.find_element_by_id('id_new_item').send_keys('Buy milk')
         self.browser.find_element_by_id('id_new_item').send_keys(Keys.ENTER)
         self.wait_for_row_in_list_table('1: Buy milk')
