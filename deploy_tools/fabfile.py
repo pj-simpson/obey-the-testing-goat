@@ -14,7 +14,6 @@ def deploy():
         _update_static_files()
         _update_database()
 
-
 def _get_latest_source():
     if exists('.git'):
         run('git fetch')
