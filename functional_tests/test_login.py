@@ -45,7 +45,7 @@ class LoginTest(FunctionalTest):
         # and notices a "Log in" section in the navbar for the first time
         # It's telling her to enter her email address, so she does
         if self.staging_server:
-            test_email = 'edith.testuser@yahoo.com'
+            test_email = 'peterjosephsimpson1987@gmail.com'
         else:
             test_email = 'edith@example.com'
 
