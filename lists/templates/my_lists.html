@@ -1,13 +1,29 @@
 {% extends 'base.html' %}
 
-{% block header_text %}My Lists{% endblock %}
+
+{% block header_text %}
+        {% if user.email != owner.email %}
+          <p>{{ owner.email }} Lists</p>
+        {% else %}
+            <p>My Lists</p>
+        {% endif %}
+{% endblock %}
+
 {% block list_form %}{% endblock %}
 
+{% block table %}
+    <h4>Shared with: {{ owner.email}}</h4>
+    {% for list in owner.shared_with.all %}
+        <li><a href="{{ list.get_absolute_url}}">{{list.name}}</a></li>
+{% endfor %}
+{% endblock %}
+
 {% block extra_content %}
-<h2>{{ owner.email}}'s lists</h2>
+<h4>{{ owner.email}}'s lists</h4>
 <ul>
     {% for list in owner.list_set.all %}
         <li><a href="{{ list.get_absolute_url}}">{{list.name}}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}
+
